@@ -75,6 +75,24 @@
         "dataforseo",
         "budget"
       ]
+    },
+    {
+      "name": "gostudio",
+      "source": "./plugins/gostudio",
+      "description": "GoStudio.ai brand layer for claude-seo: product marketing context, copywriting, brand guidelines, and image/video prompt skills used by the /seo brand profile.",
+      "author": {
+        "name": "GoStudio.ai",
+        "url": "https://gostudio.ai"
+      },
+      "category": "marketing",
+      "homepage": "https://gostudio.ai",
+      "keywords": [
+        "gostudio",
+        "brand",
+        "copywriting",
+        "brand-guidelines",
+        "image-prompts"
+      ]
     }
   ]
 }

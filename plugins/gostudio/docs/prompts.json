@@ -1,0 +1,27 @@
+{
+  "_note": "Single source of truth for the GoStudio prompt library. Never hardcode prompt names, counts, or availability elsewhere — reference this file. If any other file disagrees, this file wins. Update as prompts publish.",
+  "_usage": "Before writing copy that names or counts prompts, pull from here. Only status='live' prompts may appear in live copy. The prompts page is an SEO/AEO discovery surface — open, ungated, no account and no credits required to read (open decision D5, resolved 2026-08-19).",
+  "_maintenance": "Created 2026-08-20, intentionally near-empty. Created because the data-file ownership table in the product marketing context already listed this file and it did not exist — an agent told to verify a figure against it would have stalled or invented one. Populate as prompts publish.",
+  "_schema_note": "SAME FILE SHAPE AS templates.json (founder, 2026-08-20): a template record is a prompt record with more fields filled in. Fields that only templates need must be added as OPTIONAL fields on this shared shape, never as a fork — if the two files drift into different schemas, the product definition ('a template is a prompt that has been finished') and the data model stop agreeing, and the nomenclature section of the product marketing context becomes fiction.",
+  "_distribution": "Prompts are published on GoStudio.ai AND on GitHub — the only acquisition surface not on our own domain. Both need the same onward path to templates and tools. Keeping the two in sync has no assigned owner yet; see work-log/TASKS.md.",
+  "last_updated": "2026-08-20",
+  "columns": {
+    "name": "Customer-facing prompt name (2-3 words, evocative — same convention as templates.json)",
+    "description": "One line saying what you GET, not how it works",
+    "prompt_text": "The prompt itself, verbatim",
+    "model": "Which handpicked model the prompt is written for — the prompts page is organised by model",
+    "type": "image | video",
+    "category": "Grouping within the library",
+    "use_case": "The job the prompt does",
+    "status": "live | coming_soon | planned",
+    "creator": "Community creator credited, if any (see the creator revenue-share pillar)",
+    "slug": "URL slug if the prompt has a landing page (flat L1)",
+    "github_path": "Path in the public GitHub prompt library, if mirrored there"
+  },
+  "template_only_columns": {
+    "_note": "Optional fields on the shared shape. Present on a record only once it has been finished into a template — their presence is what makes a record a template rather than a prompt.",
+    "reference_images": "Reference images, which the template definition requires (see the Prompts vs Templates vs Tools section of the product marketing context)"
+  },
+  "image_prompts": [],
+  "video_prompts": []
+}

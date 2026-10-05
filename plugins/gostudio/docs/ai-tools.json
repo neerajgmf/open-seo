@@ -1,0 +1,72 @@
+{
+  "_note": "Single source of truth for the GoStudio AI tools list. Never hardcode tool names, counts, or availability elsewhere — reference this file. If any other file disagrees, this file wins. Update as tools ship.",
+  "_usage": "Before writing copy that names or counts tools, pull from here. Only status='live' tools may appear in live copy. status='coming_soon' is roadmap — do not use in customer-facing copy until shipped.",
+  "_maintenance": "Seeded 2026-08-19 from the tool list in skills/gostudio-product-marketing-context/references/product-marketing-context.md. The historical '38 AI tools' figure predates this file and was never verified against it — derive counts from this file, do not restate that number.",
+  "last_updated": "2026-08-19",
+  "columns": {
+    "name": "Customer-facing tool name",
+    "slug": "URL slug if the tool has a landing page (flat L1: www.gostudio.ai/{slug})",
+    "category": "editing | enhancement | creative | people | product | video | utility",
+    "status": "live | coming_soon",
+    "identity_training": "Whether the tool depends on identity training (see the under-revision note in the product marketing context — the training step may be replaced by character sheets)",
+    "has_landing_page": "Whether a dedicated SEO landing page exists"
+  },
+  "tools": [
+    { "name": "Photo Restoration", "slug": "photo-restoration", "category": "enhancement", "status": "live", "identity_training": false, "has_landing_page": true },
+    { "name": "Outpaint / AI Extender", "slug": "outpaint", "category": "editing", "status": "live", "identity_training": false, "has_landing_page": true },
+    { "name": "Object Removal", "slug": "ai-object-remover", "category": "editing", "status": "live", "identity_training": false, "has_landing_page": false },
+    { "name": "Background Removal", "slug": "ai-background-remover", "category": "editing", "status": "live", "identity_training": false, "has_landing_page": false },
+    { "name": "Add Background / Background Generation", "slug": "ai-background-changer", "category": "editing", "status": "live", "identity_training": false, "has_landing_page": false },
+    { "name": "Perspective Change / Multiple Angles", "slug": "multiple-angles", "category": "editing", "status": "live", "identity_training": false, "has_landing_page": true },
+    { "name": "Watermark Remover", "slug": "watermark-remover", "category": "editing", "status": "live", "identity_training": false, "has_landing_page": true },
+    { "name": "Group Photo / Add Person", "slug": null, "category": "editing", "status": "live", "identity_training": false, "has_landing_page": false },
+    { "name": "Fix Closed Eyes", "slug": null, "category": "editing", "status": "live", "identity_training": false, "has_landing_page": false },
+    { "name": "Fix Red Eyes", "slug": null, "category": "editing", "status": "live", "identity_training": false, "has_landing_page": false },
+
+    { "name": "Upscale", "slug": null, "category": "enhancement", "status": "live", "identity_training": false, "has_landing_page": false },
+    { "name": "Sharpen", "slug": null, "category": "enhancement", "status": "live", "identity_training": false, "has_landing_page": false },
+    { "name": "Denoise", "slug": null, "category": "enhancement", "status": "live", "identity_training": false, "has_landing_page": false },
+    { "name": "Deblur", "slug": "unblur-photo", "category": "enhancement", "status": "live", "identity_training": false, "has_landing_page": false },
+    { "name": "Colorize Photo", "slug": null, "category": "enhancement", "status": "live", "identity_training": false, "has_landing_page": false },
+    { "name": "Portrait Enhancer", "slug": null, "category": "enhancement", "status": "live", "identity_training": false, "has_landing_page": false },
+    { "name": "Relighting", "slug": null, "category": "enhancement", "status": "live", "identity_training": false, "has_landing_page": false },
+
+    { "name": "Headshot Generator", "slug": null, "category": "people", "status": "live", "identity_training": true, "has_landing_page": true },
+    { "name": "Expression Change", "slug": null, "category": "people", "status": "live", "identity_training": true, "has_landing_page": false },
+    { "name": "Makeup Changer", "slug": null, "category": "people", "status": "live", "identity_training": false, "has_landing_page": false },
+    { "name": "Hair Change / Virtual Hair Color", "slug": null, "category": "people", "status": "live", "identity_training": false, "has_landing_page": false },
+    { "name": "Age Modify", "slug": null, "category": "people", "status": "live", "identity_training": false, "has_landing_page": false },
+    { "name": "Style Transfer", "slug": null, "category": "people", "status": "live", "identity_training": true, "has_landing_page": false },
+    { "name": "Virtual Try-On", "slug": null, "category": "people", "status": "live", "identity_training": false, "has_landing_page": false },
+    { "name": "Hijab Respectful Edit", "slug": null, "category": "people", "status": "live", "identity_training": false, "has_landing_page": false },
+    { "name": "Digital Avatar", "slug": null, "category": "people", "status": "live", "identity_training": true, "has_landing_page": false },
+    { "name": "Face to Full Portrait", "slug": null, "category": "people", "status": "live", "identity_training": true, "has_landing_page": false },
+    { "name": "Passport Photos", "slug": "passport-photo", "category": "people", "status": "live", "identity_training": false, "has_landing_page": true },
+    { "name": "AI Photo Restoration (Memorial Photos)", "slug": null, "category": "people", "status": "live", "identity_training": false, "has_landing_page": false },
+
+    { "name": "Product Holding", "slug": null, "category": "product", "status": "live", "identity_training": true, "has_landing_page": false },
+    { "name": "Integrate Product", "slug": null, "category": "product", "status": "live", "identity_training": true, "has_landing_page": false },
+    { "name": "Product Design Mockups", "slug": null, "category": "product", "status": "live", "identity_training": false, "has_landing_page": false },
+    { "name": "Flat Lay", "slug": null, "category": "product", "status": "live", "identity_training": false, "has_landing_page": false },
+    { "name": "On-Model Photography", "slug": null, "category": "product", "status": "live", "identity_training": true, "has_landing_page": false },
+    { "name": "Ghost Mannequin", "slug": null, "category": "product", "status": "live", "identity_training": false, "has_landing_page": false },
+
+    { "name": "City Teleport", "slug": null, "category": "creative", "status": "live", "identity_training": false, "has_landing_page": false },
+    { "name": "Next Scene", "slug": null, "category": "creative", "status": "live", "identity_training": false, "has_landing_page": false },
+    { "name": "Photography Effects", "slug": null, "category": "creative", "status": "live", "identity_training": false, "has_landing_page": false },
+    { "name": "Style & Effects", "slug": null, "category": "creative", "status": "live", "identity_training": false, "has_landing_page": false },
+    { "name": "T-shirt / Mockup Creator", "slug": null, "category": "creative", "status": "live", "identity_training": false, "has_landing_page": false },
+
+    { "name": "Video Generation", "slug": "ai-video-generator", "category": "video", "status": "live", "identity_training": false, "has_landing_page": true },
+    { "name": "Video Editing", "slug": "ai-video-editor", "category": "video", "status": "live", "identity_training": false, "has_landing_page": true },
+    { "name": "Talking Head Video", "slug": null, "category": "video", "status": "live", "identity_training": true, "has_landing_page": false },
+    { "name": "Social Clips", "slug": null, "category": "video", "status": "live", "identity_training": false, "has_landing_page": false },
+
+    { "name": "Convert Format", "slug": null, "category": "utility", "status": "coming_soon", "identity_training": false, "has_landing_page": false },
+    { "name": "Compress", "slug": null, "category": "utility", "status": "coming_soon", "identity_training": false, "has_landing_page": false },
+    { "name": "Resizing", "slug": null, "category": "utility", "status": "coming_soon", "identity_training": false, "has_landing_page": false },
+    { "name": "Hijab Add/Remove", "slug": null, "category": "people", "status": "coming_soon", "identity_training": false, "has_landing_page": false },
+    { "name": "Car Editor", "slug": null, "category": "creative", "status": "coming_soon", "identity_training": false, "has_landing_page": false },
+    { "name": "Home Editor", "slug": null, "category": "creative", "status": "coming_soon", "identity_training": false, "has_landing_page": false }
+  ]
+}

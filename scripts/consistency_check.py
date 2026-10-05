@@ -95,7 +95,8 @@ SELF_DOC = {"scripts/consistency_check.py", "tests/test_consistency_check.py"}
 
 
 def check_research_refs(files, texts):
-    pat = re.compile(r'research/([A-Za-z0-9_\-]+\.md)')
+    # A top-level research/ ref, not a path segment like competitor-research/.
+    pat = re.compile(r'(?<![\w\-])research/([A-Za-z0-9_\-]+\.md)')
     errors = []
     for f in texts:
         if f in SELF_DOC:

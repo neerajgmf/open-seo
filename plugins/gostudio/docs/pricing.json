@@ -1,0 +1,58 @@
+{
+  "_note": "Single source of truth for all GoStudio pricing. Never hardcode prices/credits elsewhere — reference this file. If any other file disagrees, this file wins.",
+  "source": "Plan_Monetization_Metrics (internal sheet)",
+  "currency": "USD",
+  "credit_costs": {
+    "gpt_image_2_generation": 10,
+    "nb2_image_edit": 8,
+    "wan27_video_gen_5s": 55,
+    "seedance2_edit_5s": 60
+  },
+  "tool_credit_costs": {
+    "_note": "Per-run credit cost for individual AI tools whose modes are priced separately from the underlying model. Source: founder, 2026-09-01. Same rule as credit_costs — never hardcode these numbers in copy, reference this file.",
+    "background_remover": {
+      "cutout": {
+        "credits": 0,
+        "label": "Cutout — transparent PNG",
+        "note": "Free. An account is still required. Planned to move to 0.01 credits later — roadmap, not live. Do not reference the future price in customer-facing copy until it ships."
+      },
+      "color": {
+        "credits": 2,
+        "label": "Color — subject on a solid color background"
+      },
+      "ai_background": {
+        "credits": 8,
+        "label": "Scene — AI-generated background from a text prompt"
+      }
+    }
+  },
+  "columns": {
+    "price_usd": "Customer-facing price in USD",
+    "tier": "Plan tier (Lite / Pro / Max / HS)",
+    "plan_credits": "Credits included in the plan",
+    "price_per_credit": "price_usd / plan_credits",
+    "gpt_image_2_generations": "Approx. # of GPT Image 2 generations the credits cover (10 credits each)",
+    "nb2_image_edits": "Approx. # of NB2 image edits the credits cover (8 credits each)",
+    "wan27_video_gens": "Approx. # of Wan2.7 video generations the credits cover (55 credits each, 5s)",
+    "seedance2_edits": "Approx. # of Seedance 2 edits the credits cover (60 credits each, 5s)",
+    "cost_usd": "Internal fulfilment cost in USD",
+    "profit_usd": "price_usd - cost_usd",
+    "type": "one-time | subscription",
+    "duration": "Billing period",
+    "profit_percent": "profit_usd / price_usd * 100",
+    "comments": "Notes on bundle composition"
+  },
+  "plans": [
+    { "price_usd": 7.90,  "tier": "Lite", "plan_credits": 80,   "price_per_credit": 0.099, "gpt_image_2_generations": 8,   "nb2_image_edits": 10,  "wan27_video_gens": 1,  "seedance2_edits": 1,  "cost_usd": 0.8,  "profit_usd": 7.1,  "type": "one-time",     "duration": "one-month", "profit_percent": 89.87, "comments": "Onetime + Addons" },
+    { "price_usd": 9.90,  "tier": "Pro",  "plan_credits": 150,  "price_per_credit": 0.066, "gpt_image_2_generations": 15,  "nb2_image_edits": 18,  "wan27_video_gens": 2,  "seedance2_edits": 2,  "cost_usd": 1.5,  "profit_usd": 8.4,  "type": "one-time",     "duration": "one-month", "profit_percent": 84.85, "comments": "Onetime + Addons" },
+    { "price_usd": 24.00, "tier": "Max",  "plan_credits": 500,  "price_per_credit": 0.048, "gpt_image_2_generations": 50,  "nb2_image_edits": 62,  "wan27_video_gens": 9,  "seedance2_edits": 8,  "cost_usd": 5.0,  "profit_usd": 19.0, "type": "one-time",     "duration": "one-month", "profit_percent": 79.17, "comments": "Onetime + Addons + Headshots" },
+    { "price_usd": 3.90,  "tier": "Lite", "plan_credits": 80,   "price_per_credit": 0.049, "gpt_image_2_generations": 8,   "nb2_image_edits": 10,  "wan27_video_gens": 1,  "seedance2_edits": 1,  "cost_usd": 0.8,  "profit_usd": 3.1,  "type": "subscription", "duration": "monthly",   "profit_percent": 79.49, "comments": "Tools Subscription" },
+    { "price_usd": 6.90,  "tier": "Pro",  "plan_credits": 160,  "price_per_credit": 0.043, "gpt_image_2_generations": 16,  "nb2_image_edits": 20,  "wan27_video_gens": 2,  "seedance2_edits": 2,  "cost_usd": 1.6,  "profit_usd": 5.3,  "type": "subscription", "duration": "monthly",   "profit_percent": 76.81, "comments": "Tools Subscription" },
+    { "price_usd": 19.00, "tier": "Max",  "plan_credits": 500,  "price_per_credit": 0.038, "gpt_image_2_generations": 50,  "nb2_image_edits": 62,  "wan27_video_gens": 9,  "seedance2_edits": 8,  "cost_usd": 5.0,  "profit_usd": 14.0, "type": "subscription", "duration": "monthly",   "profit_percent": 73.68, "comments": "Tools Subscription + Headshots Subscription" },
+    { "price_usd": 29.00, "tier": "HS",   "plan_credits": 800,  "price_per_credit": 0.036, "gpt_image_2_generations": 80,  "nb2_image_edits": 100, "wan27_video_gens": 14, "seedance2_edits": 13, "cost_usd": 9.0,  "profit_usd": 20.0, "type": "subscription", "duration": "monthly",   "profit_percent": 68.97, "comments": "HS Subs" },
+    { "price_usd": 39.00, "tier": "HS",   "plan_credits": 1200, "price_per_credit": 0.033, "gpt_image_2_generations": 120, "nb2_image_edits": 150, "wan27_video_gens": 21, "seedance2_edits": 20, "cost_usd": 15.0, "profit_usd": 24.0, "type": "subscription", "duration": "monthly",   "profit_percent": 61.54, "comments": "HS Subs" },
+    { "price_usd": 49.00, "tier": "Lite", "plan_credits": 1500, "price_per_credit": 0.033, "gpt_image_2_generations": 150, "nb2_image_edits": 187, "wan27_video_gens": 27, "seedance2_edits": 25, "cost_usd": 20.0, "profit_usd": 29.0, "type": "subscription", "duration": "yearly",    "profit_percent": 59.18, "comments": "Headshots Subscription Yearly + Tools Subscription" },
+    { "price_usd": 79.00, "tier": "Pro",  "plan_credits": 2500, "price_per_credit": 0.032, "gpt_image_2_generations": 250, "nb2_image_edits": 312, "wan27_video_gens": 45, "seedance2_edits": 41, "cost_usd": 35.0, "profit_usd": 44.0, "type": "subscription", "duration": "yearly",    "profit_percent": 55.70, "comments": "Headshots Subscription Yearly" },
+    { "price_usd": 89.00, "tier": "Max",  "plan_credits": 3000, "price_per_credit": 0.030, "gpt_image_2_generations": 300, "nb2_image_edits": 375, "wan27_video_gens": 54, "seedance2_edits": 50, "cost_usd": 50.0, "profit_usd": 39.0, "type": "subscription", "duration": "yearly",    "profit_percent": 43.82, "comments": "Headshots Subscription Yearly" }
+  ]
+}

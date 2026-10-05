@@ -1,0 +1,30 @@
+{
+  "_note": "Single source of truth for the GoStudio template library — image and video. Never hardcode template names, counts, or availability elsewhere — reference this file. If any other file disagrees, this file wins. Update as templates go live.",
+  "_usage": "Before writing copy that names or counts templates, pull from here. Only status='live' templates may appear in live copy. Templates are a lead product surface under the current positioning (see Pillar 2 in the product marketing context), so this file is expected to grow often.",
+  "_maintenance": "Created 2026-08-19, intentionally near-empty. The historical '200+ workflows' figure predates this file and was never verified against it — derive counts from this file, do not restate that number. Populate as the template library ships.",
+  "last_updated": "2026-08-19",
+  "columns": {
+    "name": "Customer-facing template name (2-3 words, evocative — see naming convention below)",
+    "description": "One line saying what you GET, not how it works",
+    "type": "image | video",
+    "category": "Grouping within the library",
+    "use_case": "The job the template does",
+    "status": "live | coming_soon | planned",
+    "creator": "Community creator credited, if any (see the creator revenue-share pillar)",
+    "slug": "URL slug if the template has a landing page (flat L1)"
+  },
+  "naming_convention": {
+    "_source": "Derived from the Creatify.ai gallery teardown — see work-log/marketing-studio/",
+    "name": "2-3 word evocative name. Examples of the pattern: 'Crush Test', 'Mystery Box', 'Secret Hack Reveal'.",
+    "description": "One line starting with an adjective or verb, describing the output the user receives. Example: 'Satisfying crush and durability tests.'",
+    "presentation": "Three example thumbnails per template card, not one — signals a repeatable format with output variety rather than a single fixed result."
+  },
+  "taxonomy_note": {
+    "_warning": "Keep these axes separate. Merging them is what produced the duplicate entries observed in the Creatify teardown (Virtual Try-On appeared four times across their tabs).",
+    "format": "What the output looks like — the visual treatment. Suits in-product template naming.",
+    "job": "What the video/image is for — the persuasion job or narrative arc (problem-and-solution, before-and-after, teaser-launch). Suits in-product grouping and is the more durable axis, since formats churn with platform trends.",
+    "audience_vertical_platform": "Who it is for and where it runs. This is the axis for SEO LANDING PAGES, not for template names."
+  },
+  "image_templates": [],
+  "video_templates": []
+}

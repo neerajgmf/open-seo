@@ -18,6 +18,19 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
   seo-geo, seo-schema, seo-programmatic, seo-images and seo-image-gen follow
   those skills. Findings and scores stay brand-neutral, other sites are
   unaffected, and brand/SEO rule conflicts are reported, not merged.
+- `plugins/gostudio` 0.1.0: GoStudio.ai brand layer (product marketing
+  context, copywriting, brand guidelines with PDF and assets, image and video
+  prompt skills, pricing and catalog data), migrated from GS_Marketing branch
+  `snapshot-db1ca50-2026-09-30`. Proprietary; not covered by the root MIT
+  License. The brand guide now records exact hex values, the gradient, logo
+  versions and mistakes, collateral patterns, and conflicts found in the PDF.
+- `brand_context.py` also finds skills in `plugins/*/skills` and in installed
+  plugins, and reports each skill's `SKILL.md` path.
+
+### Fixed
+
+- `consistency_check.py` no longer reads path segments such as
+  `competitor-research/` as top-level `research/` references.
 
 ## [2.4.2] - 2026-10-04
 

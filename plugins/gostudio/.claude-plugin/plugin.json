@@ -1,0 +1,10 @@
+{
+  "name": "gostudio",
+  "version": "0.1.0",
+  "description": "GoStudio.ai brand layer for claude-seo: product marketing context, copywriting, brand guidelines, and image/video prompt skills. Pairs with the claude-seo brand profile (/seo brand) so copy and visual briefs for gostudio.ai stay on-brand.",
+  "author": {
+    "name": "GoStudio.ai"
+  },
+  "homepage": "https://gostudio.ai",
+  "license": "UNLICENSED"
+}
