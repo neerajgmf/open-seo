@@ -172,6 +172,7 @@ claude
 | `/seo profound [command]` | LLM citation tracking with time-series data (extension) |
 | `/seo bing [command] <url>` | Bing Webmaster Tools + IndexNow URL submission (extension) |
 | `/seo unlighthouse <url>` | Multi-page Lighthouse runner, runs locally (extension) |
+| `/seo openpanel [command]` | OpenPanel product analytics: traffic, conversions, funnels, GSC via the OpenPanel MCP (extension) |
 
 Every extension command is documented in [docs/COMMANDS.md](docs/COMMANDS.md).
 
@@ -387,6 +388,17 @@ Added in v2:
 - **Profound:** LLM citation tracker with time-series data
 - **Bing Webmaster:** Bing Webmaster Tools plus IndexNow unified
 - **Unlighthouse:** MIT-licensed multi-page Lighthouse runner
+
+### OpenPanel (first-party product analytics)
+
+Connects the hosted [OpenPanel MCP](https://openpanel.dev/docs/mcp) so audits
+can be checked against real visitor data: top and entry pages, referrers,
+page conversions, funnels, retention, and OpenPanel's Search Console data.
+
+```bash
+./extensions/openpanel/install.sh
+/seo openpanel projects
+```
 
 Setup walkthroughs live under `extensions/<name>/docs/`; integration notes: [docs/MCP-INTEGRATION.md](docs/MCP-INTEGRATION.md).
 

@@ -155,3 +155,47 @@ def test_python_invocations_carry_no_secret_even_across_continuations(rel: Path)
         if "python3 -" in line and "<<'PY'" in line:
             args = line.split("python3 -", 1)[1].split("<<", 1)[0]
             assert not re.search(r"KEY|TOKEN|PASSWORD|SECRET|USERNAME", args.replace("CONFIG", "")), (rel, line)
+
+
+def _run_openpanel(tmp_path: Path, client_id: str, secret: str, config: Path):
+    rel = "extensions/openpanel/install.sh"
+    script = tmp_path / "writer.py"
+    script.write_text(_extract_writer((ROOT / rel).read_text(encoding="utf-8")), encoding="utf-8")
+    env = {**os.environ, "CLAUDE_SEO_USERNAME": client_id, "CLAUDE_SEO_SECRET": secret}
+    return subprocess.run([sys.executable, str(script), str(config)],
+                          cwd=tmp_path, env=env, capture_output=True, text=True)
+
+
+@pytest.mark.skipif(
+    os.name != "posix", reason="asserts 0o600 mode bits, which Windows does not represent"
+)
+def test_openpanel_installer_builds_bearer_token_and_injection_is_inert(tmp_path: Path) -> None:
+    """OpenPanel stores base64(id:secret), so the generic literal check does not apply."""
+    import base64
+
+    config = tmp_path / ".claude.json"
+    config.write_text('{"mcpServers": {"mine": {"type": "stdio"}}}', encoding="utf-8")
+    marker = tmp_path / "PWNED"
+    secret = f"x\'\'\'; open({str(marker)!r}, 'w').write('pwned'); y=\'\'\'"
+    result = _run_openpanel(tmp_path, "client-id", secret, config)
+    assert result.returncode == 0, result.stderr
+    assert not marker.exists(), "credential injection executed code"
+
+    data = json.loads(config.read_text(encoding="utf-8"))
+    assert data["mcpServers"]["mine"] == {"type": "stdio"}, "existing servers must survive"
+    server = data["mcpServers"]["openpanel"]
+    assert server["type"] == "http"
+    assert server["url"] == "https://api.openpanel.dev/mcp"
+    token = base64.b64encode(f"client-id:{secret}".encode()).decode()
+    assert server["headers"] == {"Authorization": f"Bearer {token}"}
+    assert (config.stat().st_mode & 0o777) == 0o600
+
+
+def test_openpanel_installer_never_overwrites_an_unparseable_config(tmp_path: Path) -> None:
+    config = tmp_path / ".claude.json"
+    original = '{"mcpServers": {"mine": {}}, oops'
+    config.write_text(original, encoding="utf-8")
+    result = _run_openpanel(tmp_path, "client-id", "secret-value", config)
+    assert result.returncode != 0
+    assert config.read_text(encoding="utf-8") == original
+    assert "Nothing was changed" in result.stderr
