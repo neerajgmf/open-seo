@@ -41,6 +41,23 @@ the same setup automatically. It never installs packages globally.
 Check runtime, dependency, and Chromium readiness without changing the system.
 Diagnostic output omits absolute paths and environment values.
 
+### `/seo brand [status|setup]`
+
+Optional brand profile. When the site under analysis belongs to your brand,
+deliverable copy (titles, meta descriptions, H1s, FAQs, CTAs, schema text,
+comparison pages) and visual briefs (OG and hero image prompts) follow your
+own installed brand skills. Findings and scores never change, and other
+sites stay brand-neutral.
+
+- `/seo brand` or `/seo brand status`: show whether the profile is active and
+  which named skills are missing.
+- `/seo brand setup`: write `~/.config/claude-seo/brand.json` with the brand
+  name, the domains it owns, and up to three skill names: a product context
+  skill (required), a copywriting skill and a brand guidelines skill.
+
+The config and the brand skills stay outside the repository. Contract:
+`skills/seo/references/brand-context.md`.
+
 ### `/seo audit <url>`
 
 Full website SEO audit with parallel analysis.
@@ -759,6 +776,7 @@ Multi-page Lighthouse audit via Unlighthouse (extension, MIT, no API quota). **P
 | Command | Use Case |
 |---------|----------|
 | `/seo audit <url>` | Full website audit with parallel subagents |
+| `/seo brand [status\|setup]` | Optional brand profile for copy and visual briefs on your own sites |
 | `/seo page <url>` | Single page analysis |
 | `/seo technical <url>` | Technical SEO across 9 categories |
 | `/seo content <url>` | E-E-A-T and content quality |

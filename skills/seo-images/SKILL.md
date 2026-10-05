@@ -424,6 +424,10 @@ For maximum image SEO, run this pipeline on each image:
 
 ---
 
+## Brand Profile (Optional)
+
+Before recommending alt text or new images, run `"${CLAUDE_PLUGIN_ROOT}/scripts/claude-seo" run brand_context.py match --url <url>`. If it reports `active: true`, follow `${CLAUDE_PLUGIN_ROOT}/skills/seo/references/brand-context.md`: alt text and captions follow the brand's copywriting skill, and briefs for new or replacement images follow the guidelines skill. Findings and scores stay brand-neutral.
+
 ## Error Handling
 
 | Scenario | Action |

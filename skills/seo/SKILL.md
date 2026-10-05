@@ -64,6 +64,7 @@ extension is also installable (see "Optional Extensions" below).
 | `/seo flow [stage] [url\|topic]` | FLOW framework: evidence-led prompts for Find, Leverage, Optimize, Win, or Local stages |
 | `/seo setup` | Explicitly create or refresh the isolated Python runtime and Chromium |
 | `/seo doctor` | Check runtime readiness without changing the system |
+| `/seo brand [status\|setup]` | Optional brand profile: write deliverable copy in your brand's voice for your own sites |
 
 ## Runtime Setup
 
@@ -98,6 +99,15 @@ When the user invokes `/seo audit`, delegate to subagents in parallel:
 16. **Offer PDF report**: "Generate a professional PDF report? Use `/seo google report full`"
 
 For individual commands, load the relevant sub-skill directly.
+
+**Brand profile (optional):** before any command drafts deliverable copy or a
+visual brief, run
+`"${CLAUDE_PLUGIN_ROOT}/scripts/claude-seo" run brand_context.py match --url <target>`.
+When it reports `active: true`, follow `references/brand-context.md`: findings
+stay brand-neutral, while titles, metas, FAQs, CTAs, schema text and image
+briefs follow the brand's configured skills. In full audits, pass the match
+result to subagents that draft copy. `/seo brand` shows status; `/seo brand setup`
+writes the profile.
 After any analysis command completes, offer to generate a PDF report via `"${CLAUDE_PLUGIN_ROOT}/scripts/claude-seo" run google_report.py`.
 
 **Google update history questions** (core, spam, policy, product changes; "is the
@@ -202,6 +212,7 @@ Load these on-demand as needed (do NOT load all at startup):
 - `references/eeat-framework.md`: E-E-A-T evaluation criteria (Sept 2025 QRG update)
 - `references/eeat-scoring-guide.md`: E-E-A-T score bands and improvement actions
 - `references/quality-gates.md`: Content length minimums, uniqueness thresholds
+- `references/brand-context.md`: Optional brand profile contract (when copy and visual briefs follow a brand's skills)
 - `references/local-seo-signals.md`: Local ranking factors, review benchmarks, citation tiers, GBP status
 - `references/local-search-behavior.md`: Voice, AI search impact on local, Local Pack structure, proximity
 - `references/local-schema-types.md`: LocalBusiness subtypes, industry-specific schema and citation sources

@@ -90,6 +90,10 @@ Ready-to-use JSON-LD code for detected opportunities
 
 If DataForSEO MCP tools are available, use `serp_organic_live_advanced` for real SERP positions and `backlinks_summary` for backlink data and spam scores.
 
+## Brand Profile (Optional)
+
+Before writing recommended fixes, run `"${CLAUDE_PLUGIN_ROOT}/scripts/claude-seo" run brand_context.py match --url <url>`. If it reports `active: true`, follow `${CLAUDE_PLUGIN_ROOT}/skills/seo/references/brand-context.md`: the recommended title, meta description, H1 and FAQ rewrites are drafted through the brand's copywriting skill. Findings and scores stay brand-neutral.
+
 ## Error Handling
 
 | Scenario | Action |

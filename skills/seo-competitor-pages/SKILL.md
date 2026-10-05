@@ -211,6 +211,10 @@ competitive intent keywords with accurate, structured content.
 - Schema markup additions
 - Conversion optimization suggestions
 
+## Brand Profile (Optional)
+
+Before generating a page, run `"${CLAUDE_PLUGIN_ROOT}/scripts/claude-seo" run brand_context.py match --url <url>` against the user's own site. If it reports `active: true`, follow `${CLAUDE_PLUGIN_ROOT}/skills/seo/references/brand-context.md`: copy about the user's product, CTAs, and Organization or Product schema text come from the brand's context and copywriting skills, and generated HTML follows the guidelines skill (typeface, palette, logo use). Claims about competitors still follow the Fairness Guidelines above. Findings and scores stay brand-neutral.
+
 ## Error Handling
 
 | Scenario | Action |

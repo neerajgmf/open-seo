@@ -137,6 +137,10 @@ https://ai.google.dev/gemini-api/docs/pricing, store dated values in
 | Infographics with text | Verified `NANOBANANA_MODEL` @ 2K if supported, thinking: high | Better text rendering |
 | Quick drafts | Verified `NANOBANANA_MODEL` @ 512 if supported | Rapid iteration |
 
+## Brand Profile (Optional)
+
+Before building a prompt, run `"${CLAUDE_PLUGIN_ROOT}/scripts/claude-seo" run brand_context.py match --url <url>` against the site the image is for. If it reports `active: true`, follow `${CLAUDE_PLUGIN_ROOT}/skills/seo/references/brand-context.md`: prompts follow the brand's guidelines skill (palette, typography, logo use, photography style), on-image text follows the copywriting skill, and generated images are checked against the guidelines' logo rules before delivery. Findings and scores stay brand-neutral.
+
 ## Error Handling
 
 | Error | Resolution |

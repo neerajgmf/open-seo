@@ -236,6 +236,10 @@ If DataForSEO MCP tools are available, use `serp_organic_live_advanced` for real
 
 If Ahrefs MCP tools are available, use `keywords-explorer-overview` for keyword volume and difficulty, `serp-overview` for SERP analysis, `site-explorer-organic-keywords` for existing keyword rankings, and `site-explorer-top-pages` for competitor page performance.
 
+## Brand Profile (Optional)
+
+Before writing the brief, run `"${CLAUDE_PLUGIN_ROOT}/scripts/claude-seo" run brand_context.py match --url <url>` against the user's own site (ask for it if the topic alone does not say). If it reports `active: true`, follow `${CLAUDE_PLUGIN_ROOT}/skills/seo/references/brand-context.md`: voice notes, the suggested title and meta, CTA guidance and FAQ answers come from the brand's context and copywriting skills, and claims the context does not support become `[NEEDS SOURCE]`. Findings and scores stay brand-neutral.
+
 ## Error Handling
 
 | Scenario | Action |

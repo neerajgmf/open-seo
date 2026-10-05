@@ -90,7 +90,7 @@ claude-seo/
     seo-flow.md                  # FLOW framework integration
   hooks/                           # Quality gate hooks
     hooks.json                   # PostToolUse schema validation
-  scripts/                         # 60 Python execution scripts
+  scripts/                         # 61 Python execution scripts
     google_auth.py               # Credential management (OAuth, SA, API key, 4-tier detection)
     backlinks_auth.py            # Backlink API credential management (Moz, Bing)
     moz_api.py                   # Moz Link Explorer API (DA/PA, spam, domains, anchors)
@@ -151,6 +151,7 @@ claude-seo/
     verify_release.py            # Verify checkout integrity against a release manifest
     sitemap_discovery.py         # Sitemap discovery (robots.txt, common paths)
     runtime.py                   # Managed runtime behind the claude-seo launcher
+    brand_context.py             # Optional brand profile resolver (user-space brand.json, own-site match)
   schema/                          # Schema.org JSON-LD templates
   extensions/                      # Optional add-on install helpers
     dataforseo/                  # DataForSEO MCP install scripts
@@ -191,6 +192,7 @@ claude-seo/
 | `/seo programmatic [url\|plan]` | Programmatic SEO analysis |
 | `/seo competitor-pages [url\|generate]` | Competitor comparison pages |
 | `/seo flow [stage] [url\|topic]` | FLOW framework prompts |
+| `/seo brand [status\|setup]` | Optional brand profile for copy and visual briefs on your own sites |
 | `/seo google [command] [url]` | Google SEO APIs (GSC, PSI, CrUX, GA4) |
 | `/seo dataforseo [command]` | Live SEO data (extension) |
 | `/seo image-gen [use-case] <desc>` | AI image generation (extension) |

@@ -135,6 +135,10 @@ Approximate costs:
 | Infographics with text | Installed MCP/tool text-capable model @ 2K, thinking: high if supported | Better text rendering |
 | Quick drafts | Installed MCP/tool draft model @ 512 | Rapid iteration |
 
+## Brand Profile (Optional)
+
+Before building a prompt, run `"${CLAUDE_PLUGIN_ROOT}/scripts/claude-seo" run brand_context.py match --url <url>` against the site the image is for. If it reports `active: true`, follow `${CLAUDE_PLUGIN_ROOT}/skills/seo/references/brand-context.md`: prompts follow the brand's guidelines skill (palette, typography, logo use, photography style), on-image text follows the copywriting skill, and generated images are checked against the guidelines' logo rules before delivery. Findings and scores stay brand-neutral.
+
 ## Error Handling
 
 | Error | Resolution |

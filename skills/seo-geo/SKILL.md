@@ -386,6 +386,10 @@ Generate `GEO-ANALYSIS.md` with:
 
 If DataForSEO MCP tools are available, use `ai_optimization_chat_gpt_scraper` to check what ChatGPT web search returns for target queries (real GEO visibility check) and `ai_opt_llm_ment_search` with `ai_opt_llm_ment_top_domains` for LLM mention tracking across AI platforms.
 
+## Brand Profile (Optional)
+
+Before drafting citable passages, run `"${CLAUDE_PLUGIN_ROOT}/scripts/claude-seo" run brand_context.py match --url <url>`. If it reports `active: true`, follow `${CLAUDE_PLUGIN_ROOT}/skills/seo/references/brand-context.md`: citable sentences, AEO definitions and llms.txt key facts use facts only from the brand's context skill, in its voice. Findings and scores stay brand-neutral.
+
 ## Error Handling
 
 | Scenario | Action |

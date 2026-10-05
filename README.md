@@ -144,6 +144,7 @@ claude
 |---------|-------------|
 | `/seo setup` | Create or refresh the isolated Python runtime and Chromium |
 | `/seo doctor` | Check runtime readiness without changing the system |
+| `/seo brand [status\|setup]` | Optional brand profile: copy and image briefs for your own sites follow your brand skills |
 | `/seo audit <url>` | Full website audit with parallel sub-agent delegation |
 | `/seo page <url>` | Deep single-page analysis |
 | `/seo technical <url>` | Technical SEO audit across 9 categories |

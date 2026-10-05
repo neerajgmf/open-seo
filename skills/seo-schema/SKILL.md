@@ -169,6 +169,10 @@ When generating schema for a page:
 - Validation fixes needed
 - Generated code for implementation
 
+## Brand Profile (Optional)
+
+Before generating JSON-LD, run `"${CLAUDE_PLUGIN_ROOT}/scripts/claude-seo" run brand_context.py match --url <url>`. If it reports `active: true`, follow `${CLAUDE_PLUGIN_ROOT}/skills/seo/references/brand-context.md`: Organization, Product and Service text fields (`name`, `description`, `sameAs`, `logo`) come from the brand's context skill, and missing values stay as placeholders instead of being invented. Findings and scores stay brand-neutral.
+
 ## Error Handling
 
 | Scenario | Action |

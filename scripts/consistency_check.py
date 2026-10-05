@@ -44,7 +44,8 @@ GENERIC_BASENAMES = {"README.md", "SKILL.md", "__init__.py", "LICENSE", "LICENSE
                      "plugin.json", "marketplace.json", "hooks.json"}
 DOC_EXAMPLE_AGENTS = {"seo-newagent"}
 LOCK_PATH = "skills/seo-flow/references/flow-prompts.lock"
-RUNTIME_UTILITY_COMMANDS = {"setup", "doctor"}
+# /seo commands handled inside the orchestrator skill, with no sub-skill dir.
+RUNTIME_UTILITY_COMMANDS = {"setup", "doctor", "brand"}
 
 
 def tracked_files():

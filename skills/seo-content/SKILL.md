@@ -236,6 +236,10 @@ drawing conclusions. A date overlap is a hypothesis, never proof of cause.
 
 If DataForSEO MCP tools are available, use `kw_data_google_ads_search_volume` for real keyword volume data, `dataforseo_labs_bulk_keyword_difficulty` for difficulty scores, `dataforseo_labs_search_intent` for intent classification, and `content_analysis_summary` for content quality analysis.
 
+## Brand Profile (Optional)
+
+Before suggesting rewritten copy, run `"${CLAUDE_PLUGIN_ROOT}/scripts/claude-seo" run brand_context.py match --url <url>`. If it reports `active: true`, follow `${CLAUDE_PLUGIN_ROOT}/skills/seo/references/brand-context.md`: rewritten passages and suggested copy fixes follow the brand's copywriting skill, while E-E-A-T scoring is unchanged. Findings and scores stay brand-neutral.
+
 ## Error Handling
 
 | Scenario | Action |

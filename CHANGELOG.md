@@ -7,6 +7,18 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+### Added
+
+- Optional brand profile (`/seo brand [status|setup]`,
+  `scripts/brand_context.py`, `skills/seo/references/brand-context.md`). A
+  user-space `~/.config/claude-seo/brand.json` names installed skills for
+  product context, copywriting and brand guidelines. When the target URL is
+  one of the brand's own domains, deliverable copy, schema text and image
+  briefs in seo-page, seo-content, seo-content-brief, seo-competitor-pages,
+  seo-geo, seo-schema, seo-programmatic, seo-images and seo-image-gen follow
+  those skills. Findings and scores stay brand-neutral, other sites are
+  unaffected, and brand/SEO rule conflicts are reported, not merged.
+
 ## [2.4.2] - 2026-10-04
 
 seo-cockpit, Google sign-in through your own account, and a schema-hook fix.

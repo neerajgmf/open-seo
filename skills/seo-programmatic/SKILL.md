@@ -170,6 +170,10 @@ Measure against all other pages in the programmatic set. Shared headers, footers
 - URL pattern adjustments
 - Quality gate compliance actions
 
+## Brand Profile (Optional)
+
+Before planning templates, run `"${CLAUDE_PLUGIN_ROOT}/scripts/claude-seo" run brand_context.py match --url <url>` against the user's own site. If it reports `active: true`, follow `${CLAUDE_PLUGIN_ROOT}/skills/seo/references/brand-context.md`: template copy blocks and title and meta patterns follow the brand's copywriting skill. Findings and scores stay brand-neutral.
+
 ## Error Handling
 
 | Scenario | Action |

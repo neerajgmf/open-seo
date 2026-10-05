@@ -31,7 +31,7 @@ MANUAL_EXTENSION_SKILLS = {"banana": "seo-image-gen"}
 ALLOWED_CORE_SCRIPTS = frozenset(
     {
         "agent_ux_check.py", "agentic_check.py", "agentic_fix.py", "analyze_visual.py", "backlinks_auth.py",
-        "bing_webmaster.py", "capture_screenshot.py", "commoncrawl_graph.py",
+        "bing_webmaster.py", "brand_context.py", "capture_screenshot.py", "commoncrawl_graph.py",
         "content_humanize.py", "content_quality.py", "content_verify.py",
         "crux_history.py", "dataforseo_costs.py", "dataforseo_merchant.py",
         "dataforseo_normalize.py", "domain_history.py", "drift_baseline.py",
