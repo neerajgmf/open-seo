@@ -317,12 +317,19 @@ extensions/
 │   ├── skills/seo-bing/SKILL.md
 │   └── docs/BING-WEBMASTER-SETUP.md
 │
-└── unlighthouse/             # Multi-page Lighthouse runner (local)
+├── unlighthouse/             # Multi-page Lighthouse runner (local)
+│   ├── install.sh
+│   ├── install.ps1
+│   ├── uninstall.sh
+│   ├── skills/seo-unlighthouse/SKILL.md
+│   └── docs/UNLIGHTHOUSE-SETUP.md
+│
+└── openpanel/                # OpenPanel product analytics (hosted MCP)
     ├── install.sh
     ├── install.ps1
     ├── uninstall.sh
-    ├── skills/seo-unlighthouse/SKILL.md
-    └── docs/UNLIGHTHOUSE-SETUP.md
+    ├── skills/seo-openpanel/SKILL.md
+    └── docs/OPENPANEL-SETUP.md
 ```
 
 ### Available Extensions
@@ -337,6 +344,7 @@ extensions/
 | **Profound** | Profound API | LLM citation tracking with time-series data |
 | **Bing Webmaster** | Bing Webmaster Tools API | Bing Webmaster Tools + IndexNow URL submission |
 | **Unlighthouse** | `unlighthouse@0.13.5` | Multi-page Lighthouse runner, runs locally |
+| **OpenPanel** | Hosted MCP (`api.openpanel.dev/mcp`) | First-party product analytics: traffic, page conversions, funnels, retention, and GSC data |
 
 ### Extension Convention
 

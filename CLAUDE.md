@@ -11,8 +11,8 @@ system cover technical SEO, content quality,
 schema markup, image optimization, sitemap architecture, AI search optimization,
 local SEO (GBP, citations, reviews, map pack), maps intelligence, semantic topic
 clustering, search experience optimization (SXO), SEO drift monitoring, e-commerce
-SEO, and international SEO with cultural adaptation profiles. Matomo is available
-as an optional extension for self-hosted analytics.
+SEO, and international SEO with cultural adaptation profiles. Matomo and OpenPanel
+are available as optional extensions for first-party analytics.
 
 ## Architecture
 
@@ -161,6 +161,7 @@ claude-seo/
     profound/                    # Profound MCP install scripts
     seranking/                   # SE Ranking MCP install scripts
     unlighthouse/                # Unlighthouse install scripts
+    openpanel/                   # OpenPanel MCP install scripts
   docs/                            # Extended documentation
 ```
 
@@ -200,6 +201,7 @@ claude-seo/
 | `/seo profound [command]` | LLM citation tracking with time-series data (extension) |
 | `/seo bing [command] <url>` | Bing Webmaster Tools + IndexNow URL submission (extension) |
 | `/seo unlighthouse <url>` | Multi-page Lighthouse runner, runs locally (extension) |
+| `/seo openpanel [command]` | OpenPanel product analytics: traffic, conversions, funnels, GSC via the OpenPanel MCP (extension) |
 
 ## Development Rules
 
@@ -247,7 +249,7 @@ Part of the Claude Code skill family:
 1. **Progressive Disclosure**: Metadata always loaded, instructions on activation, resources on demand
 2. **Industry Detection**: Auto-detect SaaS, e-commerce, local, publisher, agency
 3. **Parallel Execution**: Full audits spawn up to 17 subagents simultaneously
-4. **Extension System**: DataForSEO, Firecrawl, Banana, Ahrefs, SE Ranking, Profound, Bing Webmaster, and Unlighthouse extensions
+4. **Extension System**: DataForSEO, Firecrawl, Banana, Ahrefs, SE Ranking, Profound, Bing Webmaster, Unlighthouse, and OpenPanel extensions
 
 ## Repository Topology (public + private)
 

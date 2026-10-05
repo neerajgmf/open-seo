@@ -7,6 +7,14 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+### Added
+
+- OpenPanel extension (`extensions/openpanel/`): registers the hosted
+  OpenPanel MCP server (`https://api.openpanel.dev/mcp`) in `~/.claude.json`
+  with a bearer token built from a `read` or `root` API client, and adds the
+  `seo-openpanel` skill (`/seo openpanel`) for traffic, page conversions,
+  funnels, retention, and OpenPanel's Search Console data.
+
 ## [2.4.2] - 2026-10-04
 
 seo-cockpit, Google sign-in through your own account, and a schema-hook fix.

@@ -754,6 +754,22 @@ Multi-page Lighthouse audit via Unlighthouse (extension, MIT, no API quota). **P
 
 ---
 
+### `/seo openpanel [command]`
+
+First-party product analytics via the hosted OpenPanel MCP (extension). **Prerequisites:** an OpenPanel `read` or `root` API client and the OpenPanel extension installed (`./extensions/openpanel/install.sh`), which registers `mcpServers.openpanel` in `~/.claude.json`.
+```
+/seo openpanel projects              # List projects the client can read
+/seo openpanel overview [project]    # Visitors, sessions, bounce rate, duration
+/seo openpanel top-pages             # Top pages + per-page performance
+/seo openpanel entry-pages           # Entry and exit pages
+/seo openpanel referrers             # Organic vs. other channels
+/seo openpanel conversions [event]   # Page conversions and funnels
+/seo openpanel gsc opportunities     # GSC query opportunities (if GSC is connected in OpenPanel)
+/seo openpanel gsc cannibalization   # Queries split across several pages
+```
+
+---
+
 ## Quick Reference
 
 | Command | Use Case |
@@ -791,3 +807,4 @@ Multi-page Lighthouse audit via Unlighthouse (extension, MIT, no API quota). **P
 | `/seo bing [command] <url>` | Bing Webmaster Tools + IndexNow URL submission (extension) |
 | `/seo matomo [command] [args]` | Matomo Reporting API: GA4 alternative or complement (extension) |
 | `/seo unlighthouse <url>` | Multi-page Lighthouse runner, runs locally (extension) |
+| `/seo openpanel [command]` | OpenPanel product analytics: traffic, conversions, funnels, GSC via the OpenPanel MCP (extension) |
