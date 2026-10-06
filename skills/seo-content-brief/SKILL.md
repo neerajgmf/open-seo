@@ -87,6 +87,16 @@ When briefing a hub, overview, category, or "types of" page:
 
 For non-hub pages (single service page, blog post), use site structure to suggest relevant internal links but do not force every category into the outline.
 
+### Keyword Feasibility Rule
+
+Check whether the site can realistically rank before briefing a keyword. Volume the site cannot reach is worth zero.
+
+- Compare keyword difficulty against the KD range where the site already holds top-10 positions (from ranked-keyword data when available)
+- Check the referring domains of the pages that rank. If they far exceed the target site's, content quality will not close the gap
+- If the SERP rewards something the content cannot change (free tool, no sign-up, a feature the site lacks), say so
+- When the head term is out of reach, recommend a narrower, lower-KD variant as the brief's spine. Keep the head term only where the URL or title requires it
+- Report measured numbers ("KD 69, ranking pages average 2,200 referring domains"), never impressions ("too competitive"). If no data source is available, say feasibility was not measured
+
 ### Output Language Rules
 
 - Never mention researcher names, framework names, or tool names in the output (no "Ben Goodey method", "Frase.io formula", "Princeton GEO", "Clearscope", "Backlinko")
@@ -175,6 +185,9 @@ Always output in this exact structure:
 
 ### Search Intent
 [Intent type, SERP format rewarded, target audience and knowledge level. 3-4 lines.]
+
+### Keyword Feasibility
+[KD, ranking pages' average referring domains, site's current winning KD range, verdict: target / narrow to <variant> / not measured.]
 
 ### Competitor Analysis
 | # | URL | Key H2 Sections | Est. Words | Score | Main Gap |
