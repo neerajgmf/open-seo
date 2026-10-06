@@ -180,6 +180,9 @@ competitive intent keywords with accurate, structured content.
 - **Balanced presentation**: Acknowledge competitor strengths honestly
 - **Pricing accuracy**: Include "as of [date]" disclaimers on all pricing data
 - **Feature verification**: Test competitor features where possible, cite documentation otherwise
+- **Facts, not opinions**: State limits competitors publish (free-tier scope, paid-only features, export resolution, account requirements). Never call a competitor outdated, abandoned, or low quality: these claims cannot be verified and go stale when the competitor ships
+- **Verification record**: Check each competitor claim on the live source the day it is written. Record the URL, date, and quoted text alongside the deliverable, and show a "Last verified: YYYY-MM-DD" line on the page
+- **Frame by the reader's job**: "X's background remover is paid-only; on the free plan, do it here and upload the result" helps the reader. "X is expensive" does not
 
 ## Internal Linking
 
