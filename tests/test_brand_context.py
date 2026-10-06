@@ -33,7 +33,8 @@ def env(tmp_path, monkeypatch):
     config = tmp_path / "brand.json"
     monkeypatch.setenv(brand_context.CONFIG_ENV, str(config))
     monkeypatch.setenv(brand_context.SKILL_DIRS_ENV, str(skills))
-    monkeypatch.setattr(os.path, "expanduser", lambda p: str(tmp_path / "home") if p == "~/.claude/skills" else p)
+    home = tmp_path / "home"
+    monkeypatch.setattr(os.path, "expanduser", lambda p: p.replace("~", str(home), 1) if p.startswith("~") else p)
     monkeypatch.chdir(tmp_path)
     return config
 
@@ -60,7 +61,8 @@ def test_valid_profile_is_active(env):
     out = brand_context.load_profile()
     assert out["active"] is True
     assert out["brand_name"] == "Acme"
-    assert out["skills"]["context_skill"] == {"name": "acme-context", "installed": True}
+    assert out["skills"]["context_skill"]["installed"] is True
+    assert out["skills"]["context_skill"]["path"].endswith("acme-context/SKILL.md")
 
 
 def test_missing_skill_blocks_activation(env):
@@ -160,3 +162,25 @@ def test_cli_prints_json(env, tmp_path):
         cwd=tmp_path,
     )
     assert json.loads(proc.stdout)["active"] is True
+
+
+def test_finds_skills_in_installed_plugin_cache(env, tmp_path):
+    cached = tmp_path / "home" / ".claude" / "plugins" / "cache" / "mkt" / "brandkit" / "0.1.0" / "skills" / "acme-guidelines"
+    cached.mkdir(parents=True)
+    (cached / "SKILL.md").write_text("---\nname: x\n---\n", encoding="utf-8")
+    _write(env, {**VALID, "guidelines_skill": "acme-guidelines"})
+    out = brand_context.load_profile()
+    assert out["active"] is True
+    assert out["skills"]["guidelines_skill"]["path"] == str(cached / "SKILL.md")
+
+
+def test_finds_skills_shipped_in_repo_plugins(env, tmp_path, monkeypatch):
+    repo = tmp_path / "repo"
+    shipped = repo / "plugins" / "brandkit" / "skills" / "acme-copy"
+    shipped.mkdir(parents=True)
+    (shipped / "SKILL.md").write_text("---\nname: x\n---\n", encoding="utf-8")
+    monkeypatch.setattr(brand_context, "__file__", str(repo / "scripts" / "brand_context.py"))
+    _write(env, {**VALID, "copywriting_skill": "acme-copy"})
+    out = brand_context.load_profile()
+    assert out["active"] is True
+    assert out["skills"]["copywriting_skill"]["path"] == str(shipped / "SKILL.md")

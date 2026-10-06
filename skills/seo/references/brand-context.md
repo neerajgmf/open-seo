@@ -36,8 +36,11 @@ request; never assume the profile's site.
 | Schema text fields: Organization `name`/`description`/`sameAs`/`logo`, Product and Service descriptions | Facts from `context_skill` only |
 | Visual briefs: OG and hero image prompts, page mockups, competitor-page HTML, image recommendations | Rules from `guidelines_skill` |
 
-Loading: invoke the named skills with the Skill tool and follow their own
-"required references" instructions. Load only the sections the task needs.
+Loading: invoke the named skills with the Skill tool (plugin skills may be
+listed with a plugin prefix, such as `<plugin>:<name>`). If a skill is not
+listed, read the `SKILL.md` at the `path` that `brand_context.py` reports and
+resolve its relative references from that folder. Either way, follow the
+skill's own "required references" instructions. Load only the sections the task needs.
 Never paste a brand skill's content into a report verbatim beyond the copy
 being delivered.
 

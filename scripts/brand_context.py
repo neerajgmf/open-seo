@@ -20,7 +20,9 @@ The profile lives in user space, never in the repository:
 
 Only ``brand_name``, ``sites`` and ``context_skill`` are required. The three
 skill fields name installed Claude Code skills; this script checks that each
-one resolves to a ``SKILL.md`` but never reads or prints brand content.
+one resolves to a ``SKILL.md`` (user, project, this repo's ``plugins/*/skills``,
+or an installed plugin) and reports its path, but never reads or prints brand
+content.
 Claude loads that content through the Skill tool, following
 ``skills/seo/references/brand-context.md``.
 
@@ -41,6 +43,7 @@ All commands print JSON. Environment overrides (mainly for tests):
 """
 
 import argparse
+import glob
 import json
 import os
 import re
@@ -67,12 +70,21 @@ def config_path() -> str:
 
 
 def skill_dirs() -> list:
-    """Directories searched for named skills, in priority order."""
+    """Directories searched for named skills, in priority order.
+
+    Covers user and project skills, skills shipped by plugins inside this
+    repository (``plugins/*/skills``), and skills of installed plugins in
+    Claude Code's plugin cache.
+    """
     dirs = []
     extra = os.environ.get(SKILL_DIRS_ENV, "")
     dirs.extend(d for d in extra.split(os.pathsep) if d)
     dirs.append(os.path.join(os.getcwd(), ".claude", "skills"))
     dirs.append(os.path.expanduser("~/.claude/skills"))
+    repo_root = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+    dirs.extend(sorted(glob.glob(os.path.join(repo_root, "plugins", "*", "skills"))))
+    cache = os.path.expanduser("~/.claude/plugins/cache")
+    dirs.extend(sorted(glob.glob(os.path.join(cache, "*", "*", "*", "skills")), reverse=True))
     return dirs
 
 
@@ -90,10 +102,11 @@ def normalize_host(value: str) -> Optional[str]:
 
 
 def find_skill(name: str) -> Optional[str]:
-    """Return the directory holding ``<name>/SKILL.md``, or None."""
+    """Return the path of ``<name>/SKILL.md`` in the first matching skill dir, or None."""
     for base in skill_dirs():
-        if os.path.isfile(os.path.join(base, name, "SKILL.md")):
-            return base
+        path = os.path.join(base, name, "SKILL.md")
+        if os.path.isfile(path):
+            return path
     return None
 
 
@@ -148,9 +161,9 @@ def load_profile() -> dict:
         if not isinstance(name, str) or not _SKILL_NAME_RE.match(name):
             result["errors"].append(f"{field} must be a kebab-case skill name")
             continue
-        found = find_skill(name) is not None
-        skills[field] = {"name": name, "installed": found}
-        if not found:
+        path = find_skill(name)
+        skills[field] = {"name": name, "installed": path is not None, "path": path}
+        if path is None:
             result["errors"].append(f"{field} '{name}' is not installed")
     result["skills"] = skills
 

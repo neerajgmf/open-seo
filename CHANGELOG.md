@@ -18,6 +18,13 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
   seo-geo, seo-schema, seo-programmatic, seo-images and seo-image-gen follow
   those skills. Findings and scores stay brand-neutral, other sites are
   unaffected, and brand/SEO rule conflicts are reported, not merged.
+  Skills resolve from user and project skills, `plugins/*/skills`, and
+  installed plugins; `status` reports each skill's `SKILL.md` path.
+
+### Fixed
+
+- `consistency_check.py` no longer reads path segments such as
+  `competitor-research/` as top-level `research/` references.
 
 ## [2.4.2] - 2026-10-04
 
